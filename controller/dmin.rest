@@ -1,0 +1,20 @@
+### //Buat Super
+POST http://localhost:5011/admin
+Content-Type: application/json
+
+{
+"Nama" : "Nisa", 
+"Username" : "anisya", 
+"Password" : "123456", 
+"confPassword" : "123456"
+}
+
+### //Login
+
+POST http://localhost:5011/login
+Content-Type: application/json
+
+{
+"Username" : "anisya", 
+"Password" : "123456" 
+}
