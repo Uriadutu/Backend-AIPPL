@@ -10,8 +10,6 @@ export const Login = async (req, res) => {
         Username: req.body.Username,
       },
     });
-
-
     if (admin) {
       user = admin;
       const match = await argon2.verify(user.Password, req.body.Password);
@@ -21,8 +19,6 @@ export const Login = async (req, res) => {
     } else {
       return res.status(404).json({ msg: "User tidak ditemukan" });
     }
-
-    
     // Berhasil login
     req.session.userId = user.id_Admin;
     const { Username } = user;

@@ -6,6 +6,7 @@ import SequelizeStore from "connect-session-sequelize";
 import cors from "cors"
 import AdminRoute from "./routes/AdminRoute.js"
 import AuthRoute from "./routes/AuthRoute.js"
+import KuiRoute from "./routes/KuiRoute.js"
 
 dotenv.config();
 const app = express();
@@ -15,9 +16,9 @@ const sessionStore = SequelizeStore(session.Store);
 const store = new sessionStore({
   db: db,
 });
-// (async()=>{
-//     await db.sync();
-// })(); 
+(async()=>{
+    await db.sync();
+})(); 
 
 app.use(session({
     secret: process.env.SESS_SECRET,
@@ -38,6 +39,7 @@ app.use(
 app.use(express.json()) ;
 app.use(AdminRoute);
 app.use(AuthRoute)
+app.use(KuiRoute);
 
 
 
